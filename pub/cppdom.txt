@@ -1,0 +1,93 @@
+
+Content: ENUMERATION
+USE:Enums or enumerations are generally used when you expect the variable to select one value from the possible set of values. It increases the abstraction and enables you to focus more on values rather than worrying about how to
+store them. It is also helpful for code documentation and readability purposes.
+
+
+#include <iostream>
+using namespace std;
+
+enum seasons { spring = 34, summer = 4, autumn = 9, winter = 32};
+
+int main() {
+
+    seasons s;
+
+    s = summer;
+    cout << "Summer = " << s << endl;
+
+    return 0;
+}
+
+<--------Above is basic code showing how enmu works----------->
+
+#include <iostream>
+using namespace std;
+
+enum week { Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday };
+
+int main()
+{
+    week today;
+    today = Wednesday;
+    cout << "Day " << today+1;
+    return 0;
+}
+Output---->Day 4
+
+<-------Above is the default case in case of enum---------->
+
+
+Content:Virtual destructor
+use:A virtual destructor ensures that when you delete an object through a base class pointer or reference, the correct destructor for the specific derived class is called first, followed by the base class destructor. This way, all resources are properly cleaned up, regardless of which specific derived class object it is.
+For example, imagine you have a base class called Animal and derived classes like Dog and Cat. If Animal has a virtual destructor, when you delete a Dog or Cat object through an Animal pointer, the Dog or Cat destructor will be called first to clean up their specific resources (like putting away their toys), and then the Animal destructor will be called to clean up the shared resources (like cleaning up the house).
+Without a virtual destructor, only the Animal destructor would be called, potentially leaving derived class resources (like the toys) uncleaned, which could lead to resource leaks or other issues.
+
+#include <iostream>
+#include <string>
+
+// Base class
+class Base {
+public:
+    Base() { std::cout << "Base constructor called\n"; }
+    virtual ~Base() { std::cout << "Base destructor called\n"; }
+};
+
+// Derived class
+class Derived : public Base {
+public:
+    Derived() { std::cout << "Derived constructor called\n"; }
+    ~Derived() { std::cout << "Derived destructor called\n"; }
+};
+
+int main() {
+    Base* obj = new Derived();
+    delete obj;
+    return 0;
+}
+
+<-------Above is the application of virtual destructor---------->
+
+content: typedef
+use:In C++, the typedef keyword is used to create an alias for an existing data type. 
+It allows you to define a new name for a type, making the code more readable and easier to maintain.
+
+#include <iostream>
+
+// Define a typedef for the data type 'int'
+typedef int Integer;
+
+int main() {
+    // Now 'Integer' can be used instead of 'int'
+    Integer num = 10;
+
+    std::cout << "The value of num is: " << num << std::endl;
+
+    return 0;
+}
+
+<-------Above is the application of typedef---------->
+
+
+
+
