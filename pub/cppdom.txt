@@ -89,5 +89,10 @@ int main() {
 <-------Above is the application of typedef---------->
 
 
+content: #Pragma
+use:#pragma is a directive in C and C++ programming languages that provides additional instructions to 
+the compiler. These instructions are not related to the program's functionality but rather to the compilation process itself. #pragma directives are typically used to control compiler-specific options, such as optimization 
+settings, or to give hints and instructions to the compiler about how to handle certain parts of the code.
 
+<-------Above is about Pragma directive---------->
 
